@@ -1,0 +1,111 @@
+ body {
+    font-family: 'Inter', 'system-ui';
+ }
+ 
+ .nav-dropdown {
+    visibility: hidden;
+    position: absolute;
+    left: -1.5rem;
+    top: 1rem;
+    margin-top: 0.5rem; 
+    transform: translateY(-4px);
+    border: 1px solid #3f3f46;
+    border-radius: 8px;
+    padding: 0.5rem;
+    min-width: 192px;
+    background: #1a1a1a;
+    transition: transform .25s, visiblity .25s;
+    z-index: 20;
+  }
+  
+  .nav-dropdown.show {
+    visibility: visible;
+    transform: translateY(0px);
+  }
+
+  .nav-link:active::after {
+    position: absolute;
+    display: block;
+    content: "";
+    bottom: -1.6rem;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid #fcd34d;
+  }
+  
+
+  .link-icon {
+    display: inline-block;
+    margin-top: -2px;
+    margin-left: 4px;
+    width: 11px;
+    height: 11px;
+    fill: #6f6e6e;
+    transition: fill .25s;
+  }
+
+
+.gradient-border {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.375rem;
+    padding: 2px;
+    background: linear-gradient(#27272a, #27272a), linear-gradient(45deg, #fcd34d, #db2777) border-box;
+    background-clip: content-box, border-box;
+  }
+  
+  .gradient-border button {
+    position: relative;
+    z-index: 1;
+    background-color: #272722;
+  }
+
+  .hero-section::after {
+    content: "";
+    inset: 0;
+    z-index: -2;
+    position: absolute;
+    opacity: .3;
+    transform: translateY(0px);
+    animation: slideUp .5s ease;
+    background-image: url(assets/images/hero-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .hero-section::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(to top, #1A1A1A, transparent)
+  }
+
+  .hero-section {
+    position: relative;
+    z-index: 10;
+  }
+
+  .arrow-svg .arrow-tail {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+    transition: stroke-dashoffset .25s ease;
+  }
+
+  .arrow-svg {
+    transition: .25s;
+  }
+
+  .arrow-svg-hover:hover .arrow-svg {
+    transform: translateX(.25rem);
+}
+
+.arrow-svg-hover:hover .arrow-tail {
+    stroke-dashoffset: 24;
+}
+
+.tab-link.active {
+    background: #424242;
+}
