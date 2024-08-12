@@ -3,24 +3,27 @@
  }
  
  .nav-dropdown {
-    visibility: hidden;
-    position: absolute;
-    left: -1.5rem;
-    top: 100%;
-    transform: translateY(-4px);
-    border: 1px solid #3f3f46;
-    border-radius: 8px;
-    padding: 0.5rem;
-    min-width: 192px;
-    background: #1a1a1a;
-    transition: transform .25s, visiblity .25s;
-    z-index: 20;
-  }
-  
-  .nav-dropdown.show {
-    visibility: visible;
-    transform: translateY(0px);
-  }
+  opacity: 0;
+  position: absolute;
+  left: -1.5rem;
+  top: 100%;
+  transform: translateY(-4px);
+  border: 1px solid #3f3f46;
+  border-radius: 8px;
+  padding: 0.5rem;
+  min-width: 192px;
+  background: #1a1a1a;
+  transition: transform 0.25s, opacity 0.25s;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.nav-dropdown.show {
+  opacity: 1;
+  transform: translateY(0px);
+  pointer-events: auto;
+}
+
 
   .nav-link:active::after {
     position: absolute;
@@ -79,7 +82,7 @@
     position: absolute;
     z-index: -1;
     inset: 0;
-    background: linear-gradient(to top, #1A1A1A, transparent)
+    background: linear-gradient(to top, #1A1A1A, transparent 50%);
   }
 
   .hero-section {
@@ -107,4 +110,32 @@
 
 .tab-link.active {
     background: #424242;
+}
+
+a.flex-col svg {
+  transition: transform 0.5s ease-in-out;
+}
+
+a.flex-col:hover svg {
+  transform: rotate(90deg);
+}
+
+.promotion-wrapper::after {
+  content: "";
+  position: absolute;
+  background-image: url(assets/images/promotion.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: .25;
+  z-index: -2;
+  inset: 0;
+}
+
+
+
+.promotion-wrapper {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
